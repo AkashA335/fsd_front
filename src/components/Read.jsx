@@ -54,13 +54,15 @@ const Read = () => {
       .delete(`${BACKEND_URL}/employees/${employeeID}`)
       .then(() => {
         toast.success("Employee deleted successfully!");
-        setEmployees((prev) => prev.filter((employee) => employee.employeeID !== employeeID));
+        setEmployees((prev) =>
+          prev.filter((employee) => employee.employeeID !== employeeID)
+        );
       })
       .catch(() => toast.error("Failed to delete employee."));
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center text-center">
       <h2>Employee List</h2>
       <table border="1">
         <thead>
@@ -129,7 +131,7 @@ const Read = () => {
                       onChange={handleChange}
                     />
                   </td>
-                  <td>
+                  <td className="space-x-2">
                     <button onClick={handleSaveClick}>Save</button>
                     <button onClick={handleCancelClick}>Cancel</button>
                   </td>
@@ -144,8 +146,14 @@ const Read = () => {
                   <td>{employee.dateOfJoining.split("T")[0]}</td>
                   <td>{employee.role}</td>
                   <td>
-                    <button onClick={() => handleEditClick(employee)}>Edit</button>
-                    <button onClick={() => handleDeleteClick(employee.employeeID)}>Delete</button>
+                    <button onClick={() => handleEditClick(employee)}>
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteClick(employee.employeeID)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </>
               )}
