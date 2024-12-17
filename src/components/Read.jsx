@@ -49,6 +49,15 @@ const Read = () => {
       .catch(() => toast.error("Failed to update employee details."));
   };
 
+  const handleDeleteClick = (employeeID) => {
+    axios
+      .delete(`${BACKEND_URL}/employees/${employeeID}`)
+      .then(() => {
+        toast.success("Employee deleted successfully!");
+        setEmployees((prev) => prev.filter((employee) => employee.employeeID !== employeeID));
+      })
+      .catch(() => toast.error("Failed to delete employee."));
+  };
 
   return (
     <div>
@@ -136,6 +145,7 @@ const Read = () => {
                   <td>{employee.role}</td>
                   <td>
                     <button onClick={() => handleEditClick(employee)}>Edit</button>
+                    <button onClick={() => handleDeleteClick(employee.employeeID)}>Delete</button>
                   </td>
                 </>
               )}
