@@ -18,6 +18,38 @@ const Read = () => {
       .catch(() => toast.error("Failed to fetch employee data."));
   }, []);
 
+  const handleEditClick = (employee) => {
+    setEditRow(employee.employeeID);
+    setEditedValues(employee);
+  };
+
+  const handleCancelClick = () => {
+    setEditRow(null);
+    setEditedValues({});
+  };
+
+  const handleChange = (e) => {
+    setEditedValues({ ...editedValues, [e.target.name]: e.target.value });
+  };
+
+  const handleSaveClick = () => {
+    axios
+      .put(`${BACKEND_URL}/employees/${editedValues.employeeID}`, editedValues)
+      .then(() => {
+        toast.success("Employee details updated successfully!");
+        setEmployees((prev) =>
+          prev.map((employee) =>
+            employee.employeeID === editedValues.employeeID
+              ? { ...editedValues }
+              : employee
+          )
+        );
+        setEditRow(null);
+      })
+      .catch(() => toast.error("Failed to update employee details."));
+  };
+
+
   return (
     <div>
       <h2>Employee List</h2>
@@ -102,7 +134,9 @@ const Read = () => {
                   <td>{employee.department}</td>
                   <td>{employee.dateOfJoining.split("T")[0]}</td>
                   <td>{employee.role}</td>
-                  
+                  <td>
+                    <button onClick={() => handleEditClick(employee)}>Edit</button>
+                  </td>
                 </>
               )}
             </tr>
