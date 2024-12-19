@@ -62,9 +62,9 @@ const Read = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center text-center">
-      <h2>Employee List</h2>
-      <table border="1">
+    <div className="flex flex-col justify-center text-center items-center space-y-5">
+      <h1 className="text-3xl font-bold">Employee List</h1>
+      <table border="1" cellPadding="10" cellSpacing="0" className="table-auto">
         <thead>
           <tr>
             <th>Name</th>
@@ -146,10 +146,11 @@ const Read = () => {
                   <td>{employee.dateOfJoining.split("T")[0]}</td>
                   <td>{employee.role}</td>
                   <td>
-                    <button onClick={() => handleEditClick(employee)}>
+                    <button className="mr-3 justify-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded " onClick={() => handleEditClick(employee)}>
                       Edit
                     </button>
                     <button
+                      className=" justify-center bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded "
                       onClick={() => handleDeleteClick(employee.employeeID)}
                     >
                       Delete
@@ -162,7 +163,7 @@ const Read = () => {
         </tbody>
       </table>
       <Link to="/">
-        <button>Add Details</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Details</button>
       </Link>
       <ToastContainer position="top-center" autoClose={3000} />
     </div>
