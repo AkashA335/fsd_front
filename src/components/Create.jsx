@@ -68,63 +68,104 @@ const Create = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center">
-      <h2 className="text-4xl font-bold mb-4 ">Add User Details</h2>
-      <form className="  space-y-5 font-semibold" onSubmit={handleSubmit}>
-        <div className="font-bold space-y-4 text-xl">
-          <div className="space-x-2">
-            <label htmlFor="name">Name:</label>
-            <input type="text" name="name" onChange={handleChange} />
-          </div>
-          <div className="space-x-2">
-            <label htmlFor="employeeID">Employee ID:</label>
-            <input type="text" name="employeeID" onChange={handleChange} />
-          </div>
-          <div className="space-x-2">
-            <label htmlFor="email">Email:</label>
-            <input type="email" name="email" onChange={handleChange} />
-          </div >
-          <div className="space-x-2">
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input type="tel" name="phoneNumber" onChange={handleChange} />
-          </div>
-          <div className="space-x-2">
-            <label htmlFor="department">Department:</label>
-            <input type="text" name="department" onChange={handleChange} />
-          </div>
-          <div className="space-x-2">
-            <label htmlFor="dateOfJoining">Date of Joining:</label>
-            <input
-              type="date"
-              name="dateOfJoining"
-              onChange={handleChange}
-              max={new Date().toISOString().split("T")[0]}
-            />
-          </div>
-          <div className="space-x-2">
-            <label htmlFor="role">Role:</label>
-            <input type="text" name="role" onChange={handleChange} />
-          </div>
-          <div className="flex gap-4 justify-center mt-2">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              type="submit"
-            >
-              Submit
-            </button>
-            <div>
-              <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                type="reset"
-              >
-                Clear
-              </button>
-            </div>
-          </div>
+    <div className="flex flex-col min-h-screen justify-center items-center transform scale-104">
+      <h2 className="text-3xl font-bold mb-5">Add User Details</h2>
+      <form className="space-y-5 font-semibold" onSubmit={handleSubmit}>
+        <div className="flex items-center gap-4">
+          <label htmlFor="name" className="w-32 font-bold text-l text-left">
+            Name:
+          </label>
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="employeeID" className="w-32 font-bold text-l text-left">
+            Employee ID:
+          </label>
+          <input
+            type="text"
+            name="employeeID"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="email" className="w-32 font-bold text-l text-left">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="phoneNumber" className="w-32 font-bold text-l text-left">
+            Phone Number:
+          </label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="department" className="w-32 font-bold text-l text-left">
+            Department:
+          </label>
+          <input
+            type="text"
+            name="department"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="dateOfJoining" className="w-32 font-bold text-l text-left">
+            Date of Joining:
+          </label>
+          <input
+            type="date"
+            name="dateOfJoining"
+            onChange={handleChange}
+            max={new Date().toISOString().split("T")[0]}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <label htmlFor="role" className="w-32 font-bold text-l text-left">
+            Role:
+          </label>
+          <input
+            type="text"
+            name="role"
+            onChange={handleChange}
+            className="flex-grow border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <div className="flex justify-center gap-4 mt-4">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            type="submit"
+          >
+            Submit
+          </button>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            type="reset"
+          >
+            Clear
+          </button>
         </div>
       </form>
       <Link to="/read">
-        <button className="text-xl flex gap-4 justify-center mt-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ">
+        <button className="text-l flex gap-4 justify-center mt-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
           Show Details
         </button>
       </Link>
